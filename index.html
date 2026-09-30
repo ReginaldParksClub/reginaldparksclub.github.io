@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reginald Parks Club — Jonestown, Baltimore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F4EF;
+    --off-white: #FAFAF8;
+    --black: #1A1A18;
+    --mid: #6B6860;
+    --light: #C8C5BE;
+    --rule: #DDD9D2;
+    --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', system-ui, sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  html, body { height: 100%; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--off-white);
+    color: var(--black);
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* ── UTILITY ── */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+  .serif { font-family: var(--serif); }
+  .label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    border-bottom: 1px solid var(--rule);
+    padding: 0.6rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar span { font-size: 10px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    text-align: center;
+    padding: 2.5rem 2rem 1.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+  }
+  .masthead .tagline {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  /* ── NAV ── */
+  nav {
+    border-bottom: 1px solid var(--rule);
+    padding: 0 2rem;
+  }
+  nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+  nav ul li a {
+    display: block;
+    padding: 0.85rem 1.2rem;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    transition: color 0.15s;
+  }
+  nav ul li a:hover { color: var(--mid); }
+  nav ul li.cart a { color: var(--mid); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 5rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .hero .badge {
+    display: inline-block;
+    border: 1px solid var(--rule);
+    padding: 0.35rem 0.75rem;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 2.5rem;
+  }
+  .hero h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.18;
+    color: var(--mid);
+    max-width: 580px;
+    margin-bottom: 1.5rem;
+  }
+  .hero p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--mid);
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+  .btn {
+    display: inline-block;
+    border: 1px solid var(--black);
+    padding: 0.65rem 1.4rem;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--black);
+    transition: background 0.15s, color 0.15s;
+    cursor: pointer;
+    background: transparent;
+  }
+  .btn:hover { background: var(--black); color: var(--off-white); }
+
+  /* ── SECTION RULE ── */
+  .section-rule {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 0;
+  }
+
+  /* ── EDITORIAL SECTION ── */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1.5rem 0 1.2rem;
+  }
+  .section-header .view-all {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .editorial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .editorial-card {
+    padding: 1.6rem 1.4rem 1.6rem 0;
+    border-right: 1px solid var(--rule);
+  }
+  .editorial-card:last-child { border-right: none; padding-right: 0; }
+  .editorial-card:not(:first-child) { padding-left: 1.4rem; }
+  .editorial-card .card-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 0.7rem;
+  }
+  .editorial-card h3 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.35;
+    margin-bottom: 0.6rem;
+    color: var(--black);
+  }
+  .editorial-card p {
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: var(--mid);
+    margin-bottom: 0.9rem;
+  }
+  .read-link {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ── SHOP SECTION ── */
+  .shop-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .shop-card {
+    padding: 1.4rem 1.2rem 1.4rem 0;
+    border-right: 1px solid var(--rule);
+  }
+  .shop-card:last-child { border-right: none; padding-right: 0; }
+  .shop-card:not(:first-child) { padding-left: 1.2rem; }
+  .shop-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--cream);
+    margin-bottom: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .shop-img-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--light);
+    text-align: center;
+    padding: 1rem;
+  }
+  .shop-card .item-tag {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 0.3rem;
+  }
+  .shop-card h4 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+  }
+  .shop-card .price {
+    font-size: 12px;
+    color: var(--mid);
+  }
+
+  /* ── EVENT ── */
+  .event-block {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .event-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 0.9rem;
+  }
+  .event-block h3 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+    color: var(--black);
+  }
+  .event-block p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--mid);
+    margin-bottom: 1rem;
+  }
+  .event-location {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 0.8rem;
+  }
+
+  /* ── NEWSLETTER ── */
+  .newsletter {
+    background: var(--cream);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  .newsletter h3 {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .newsletter p {
+    font-size: 13px;
+    color: var(--mid);
+    margin-bottom: 1.5rem;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 0;
+    max-width: 360px;
+    margin: 0 auto;
+    border: 1px solid var(--rule);
+  }
+  .newsletter-form input {
+    flex: 1;
+    padding: 0.65rem 1rem;
+    border: none;
+    background: var(--off-white);
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--black);
+    outline: none;
+  }
+  .newsletter-form input::placeholder { color: var(--light); }
+  .newsletter-form button {
+    padding: 0.65rem 1rem;
+    background: var(--black);
+    color: var(--off-white);
+    border: none;
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2.5rem 2rem;
+    background: var(--off-white);
+  }
+  .footer-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .footer-brand h4 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+  .footer-brand p {
+    font-size: 12px;
+    color: var(--mid);
+    line-height: 1.6;
+  }
+  .footer-col h5 {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 0.85rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.45rem; }
+  .footer-col ul li a {
+    font-size: 12px;
+    color: var(--mid);
+    transition: color 0.15s;
+  }
+  .footer-col ul li a:hover { color: var(--black); }
+  .copyright {
+    max-width: 900px;
+    margin: 1.2rem auto 0;
+    font-size: 11px;
+    color: var(--light);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .topbar { display: none; }
+    .masthead { padding: 1.5rem 1.5rem 1rem; }
+    nav ul { gap: 0; }
+    nav ul li a { padding: 0.7rem 0.7rem; font-size: 10px; }
+    .hero { padding: 3rem 1.5rem 2.5rem; }
+    .editorial-grid { grid-template-columns: 1fr; }
+    .editorial-card { border-right: none; border-bottom: 1px solid var(--rule); padding: 1.4rem 0; }
+    .editorial-card:not(:first-child) { padding-left: 0; }
+    .shop-grid { grid-template-columns: 1fr 1fr; }
+    .shop-card:nth-child(2) { border-right: none; }
+    .shop-card:nth-child(3) { border-top: 1px solid var(--rule); padding-left: 0; }
+    .shop-card:nth-child(4) { border-top: 1px solid var(--rule); border-right: none; }
+    .event-block { grid-template-columns: 1fr; gap: 0; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: 1 / -1; }
+    .container { padding: 0 1.5rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <span>Jonestown · Baltimore</span>
+  <span>845 E Lombard St</span>
+</div>
+
+<!-- Masthead -->
+<div class="masthead">
+  <h1>Reginald Parks Club</h1>
+  <p class="tagline">Retail · Editorial · Events — Est. Baltimore</p>
+</div>
+
+<!-- Nav -->
+<nav>
+  <ul>
+    <li><a href="#">Editorial</a></li>
+    <li><a href="#">Shop</a></li>
+    <li><a href="#">Books</a></li>
+    <li><a href="#">Events</a></li>
+    <li><a href="#">Visit</a></li>
+    <li class="cart"><a href="#">[ Cart · 0 ]</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="badge">No. 845 — Lombard St.</div>
+  <h2>Dressed for the room you're walking into.</h2>
+  <p>Vintage menswear, in-house tailoring, and the stories behind Jonestown's newest cultural address. New arrivals land every Friday.</p>
+  <a href="#" class="btn">Shop New Arrivals</a>
+</section>
+
+<hr class="section-rule">
+
+<!-- Editorial -->
+<section class="container">
+  <div class="section-header">
+    <span class="label">From the Editorial</span>
+    <a href="#" class="view-all">View All →</a>
+  </div>
+  <div class="editorial-grid">
+    <div class="editorial-card">
+      <div class="card-label">Community</div>
+      <h3>Building the Sidewalk Market on South Alternate Street</h3>
+      <p>Inside our partnership with the Historic Jonestown Community Association — and what it takes to bring a market to life block by block.</p>
+      <a href="#" class="read-link">Read the Story</a>
+    </div>
+    <div class="editorial-card">
+      <div class="card-label">Recap</div>
+      <h3>16 Players, One Board: The RPC Chess Tournament</h3>
+      <p>A Saturday afternoon of focused competition, neighborhood pride, and the kind of quiet intensity that only chess produces.</p>
+      <a href="#" class="read-link">Read the Recap</a>
+    </div>
+    <div class="editorial-card">
+      <div class="card-label">In the Kitchen</div>
+      <h3>What We're Cooking at 845 Lombard This Month</h3>
+      <p>The ingredients, the neighbors, and the meals that have been shaping our communal table this season.</p>
+      <a href="#" class="read-link">Read More</a>
+    </div>
+  </div>
+</section>
+
+<hr class="section-rule" style="margin-top: 0.5rem;">
+
+<!-- Shop -->
+<section class="container">
+  <div class="section-header">
+    <span class="label">Shop the Floor</span>
+    <a href="#" class="view-all">View All →</a>
+  </div>
+  <div class="shop-grid">
+    <div class="shop-card">
+      <div class="shop-img"><div class="shop-img-inner">Oxford Cloth Button-Down</div></div>
+      <div class="item-tag">Vintage</div>
+      <h4>Oxford Cloth Button-Down</h4>
+      <div class="price">$85.00</div>
+    </div>
+    <div class="shop-card">
+      <div class="shop-img"><div class="shop-img-inner">Herringbone Sport Coat</div></div>
+      <div class="item-tag">Vintage</div>
+      <h4>Herringbone Sport Coat</h4>
+      <div class="price">$210.00</div>
+    </div>
+    <div class="shop-card">
+      <div class="shop-img"><div class="shop-img-inner">RPC Pennant Tee</div></div>
+      <div class="item-tag">RPC Original</div>
+      <h4>RPC Pennant Tee</h4>
+      <div class="price">$45.00</div>
+    </div>
+    <div class="shop-card">
+      <div class="shop-img"><div class="shop-img-inner">A Guide to Games</div></div>
+      <div class="item-tag">Books</div>
+      <h4>A Guide to Games</h4>
+      <div class="price">$32.00</div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-rule" style="margin-top: 0.5rem;">
+
+<!-- Event -->
+<section class="container">
+  <div class="event-block">
+    <div>
+      <div class="event-label">Upcoming</div>
+      <h3>Free Youth Arts Day, in partnership with the McKim Center</h3>
+      <p>A free afternoon of art-making, music, and mentorship for Jonestown's young people — produced with the McKim Center and neighborhood partners.</p>
+      <div class="event-location">845 E Lombard St, Baltimore MD · Details Soon</div>
+      <a href="#" class="btn">Learn More</a>
+    </div>
+    <div>
+      <div class="event-label">Also Coming Up</div>
+      <h3>Tailoring Workshop — Bring a Piece, Learn a Stitch</h3>
+      <p>An afternoon hands-on session with our in-house tailor. Open to all skill levels. Materials provided for registered guests.</p>
+      <div class="event-location">845 E Lombard St · Registration Opens Soon</div>
+      <a href="#" class="btn">Stay Informed</a>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<div class="newsletter">
+  <h3>Stay in the Loop</h3>
+  <p>Get first word on drops, markets, and events.</p>
+  <div class="newsletter-form">
+    <input type="email" placeholder="Email address">
+    <button type="button">Join</button>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h4>Reginald Parks Club</h4>
+      <p>845 E Lombard St, Baltimore, MD<br>Jonestown</p>
+    </div>
+    <div class="footer-col">
+      <h5>Shop</h5>
+      <ul>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Vintage</a></li>
+        <li><a href="#">Books</a></li>
+        <li><a href="#">RPC Originals</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>About</h5>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Editorial</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Visit 845 Lombard</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Follow</h5>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Newsletter</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright">© 2026 Reginald Parks Club — 845 E Lombard St, Baltimore, MD · Jonestown</div>
+</footer>
+
+</body>
+</html>
